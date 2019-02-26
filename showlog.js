@@ -52,11 +52,11 @@
     ////////////////////////////////////////////////////////////////////////
 
     var showlog = {};
-    var debug;
+    var showlog_container;
+    var counter = 0;
+    var indicator;
     var bracket;
     var message_container;
-    var indicator;
-    var counter = 1;
 
     ////////////////////////////////////////////////////////////////////////
     //
@@ -64,27 +64,27 @@
     //
     ////////////////////////////////////////////////////////////////////////
 
-    function createDebug(){
-        debug = document.createElement('div');
+    function createUI(){
+        showlog_container = document.createElement('div');
         indicator = document.createElement('span');
         bracket = document.createElement('span');
         message_container = document.createElement('span');
 
-        debug.id = 'Mobilog';
-        debug.style.position = 'fixed';
-        debug.style.width = '100%';
-        debug.style.height = 'auto';
-        debug.style.top = '0';
-        debug.style.left = '0';
-        debug.style.textAlign = 'center';
-        debug.style.color = '#fff';
-        debug.style.fontFamily = 'monospace';
-        debug.style.fontWeight = 'bold';
-        debug.style.fontSize = '20px';
-        debug.style.lineHeight = '1.8';
-        debug.style.textShadow = '0px 0px 9px #000, 0px 0px 10px #000';
-        debug.style.pointerEvents = 'none';
-        debug.style.zIndex = '+9999';
+        showlog_container.id = 'showlog_container';
+        showlog_container.style.position = 'fixed';
+        showlog_container.style.width = '100%';
+        showlog_container.style.height = 'auto';
+        showlog_container.style.top = '0';
+        showlog_container.style.left = '0';
+        showlog_container.style.textAlign = 'center';
+        showlog_container.style.color = '#fff';
+        showlog_container.style.fontFamily = 'monospace';
+        showlog_container.style.fontWeight = 'bold';
+        showlog_container.style.fontSize = '20px';
+        showlog_container.style.lineHeight = '1.8';
+        showlog_container.style.textShadow = '0px 0px 9px #000, 0px 0px 10px #000';
+        showlog_container.style.pointerEvents = 'none';
+        showlog_container.style.zIndex = '+9999';
 
         indicator.style.color = '#fff';
         indicator.style.textShadow = '0px 0px 9px #3b7ff1, 0px 0px 10px #3b7ff1, 0px 0px 11px #3b7ff1';
@@ -93,15 +93,15 @@
         bracket.style.color = '#fff';
         bracket.style.textShadow = '0px 0px 9px #3b7ff1, 0px 0px 10px #3b7ff1, 0px 0px 11px #3b7ff1';
     
-        debug.appendChild(indicator);
-        debug.appendChild(bracket);
-        debug.appendChild(message_container);
-        document.body.appendChild(debug);
+        showlog_container.appendChild(indicator);
+        showlog_container.appendChild(bracket);
+        showlog_container.appendChild(message_container);
+        document.body.appendChild(showlog_container);
     }
 
-    function removeDebug(){
-        var debug = document.getElementById('Mobilog');
-        if(debug) debug.parentNode.removeChild(debug);
+    function removeUI(){
+        var showlog_container = document.getElementById('showlog_container');
+        if(showlog_container) showlog_container.parentNode.removeChild(showlog_container);
     }
 
     ////////////////////////////////////////////////////////////////////////
@@ -132,24 +132,24 @@
     ////////////////////////////////////////////////////////////////////////
 
     showlog.log = function(message){
-            if(!debug) return;
-            indicator.innerText = counter++;
-            message_container.innerText = message;
+        if(!showlog_container) return;
+        indicator.innerText = ++counter;
+        message_container.innerText = message;
     };
 
     showlog.stop = function(){
-        if(!debug) return;
-        removeDebug();
-        debug = null;
+        if(!showlog_container) return;
+        removeUI();
+        showlog_container = null;
         counter = 0;
-        return console.log('Showlog.js has been destroyed');
+        console.log('Showlog.js has been stopped');
     };
 
     showlog.start = function(){
         showlog.stop();
-        createDebug();
+        createUI();
         takeOverConsole();
-        return console.log('Showlog.js is running');
+        console.log('Showlog.js is running');
     };
 
     ////////////////////////////////////////////////////////////////////////
