@@ -57,6 +57,7 @@
     var indicator;
     var bracket;
     var message_container;
+    var original_console = console.log;
 
     ////////////////////////////////////////////////////////////////////////
     //
@@ -114,15 +115,14 @@
     // https://stackoverflow.com/questions/11403107/capturing-javascript-console-log
 
     function takeOverConsole(){
-        var original = console.log;
         console.log = function (message) {
             showlog.log(message);
-            original.apply(console, arguments);
+            original_console.apply(console, arguments);
         };
     }
 
     function restoreConsole(){
-        // Unbind showlog from console.log
+        console.log = original_console;
     }
 
     ////////////////////////////////////////////////////////////////////////
@@ -139,6 +139,7 @@
 
     showlog.stop = function(){
         if(!showlog_container) return;
+        restoreConsole();
         removeUI();
         showlog_container = null;
         counter = 0;
