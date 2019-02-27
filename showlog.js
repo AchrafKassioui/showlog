@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////
 //
-// showlog.js
-// 0.9 beta
-// Current version: 26 February 2019
+// Showlog.js
+// 1.0
+// Current version: 27 February 2019
 // First version: 10 March 2018
 //
 // www.achrafkassioui.com/showlog/
@@ -51,13 +51,13 @@
     //
     ////////////////////////////////////////////////////////////////////////
 
+    var original_console = console.log;
     var showlog = {};
     var showlog_container;
     var counter = 0;
     var indicator;
     var bracket;
     var message_container;
-    var original_console = console.log;
 
     ////////////////////////////////////////////////////////////////////////
     //
@@ -143,6 +143,7 @@
         removeUI();
         showlog_container = null;
         counter = 0;
+        showlog.running = false;
         console.log('Showlog.js has been stopped');
     };
 
@@ -150,6 +151,7 @@
         showlog.stop();
         createUI();
         takeOverConsole();
+        showlog.running = true;
         console.log('Showlog.js is running');
     };
 
