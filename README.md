@@ -1,2 +1,5 @@
 # Showlog.js
-Show `console.log` messages on screen for debugging on browsers without a console.
+
+![Logo](showlog.png)
+
+**Show `console.log` messages on screen.**
