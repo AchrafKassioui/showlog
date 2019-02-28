@@ -2,6 +2,8 @@
 
 **Show `console.log` messages on screen.**
 
+[**Demo & documentation**](https://www.achrafkassioui.com/showlog/)
+
 ## Setup
 
 Include the JavaScript file in your HTML:
