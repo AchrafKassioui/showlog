@@ -6,7 +6,7 @@
 
 ## Setup
 
-Include the JavaScript file in your HTML:
+Include the JavaScript file in HTML:
 
 ```
 <script type="text/javascript" src="showlog.js"></script>
