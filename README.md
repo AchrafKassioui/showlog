@@ -4,7 +4,7 @@
 
 **Show `console.log` messages on screen.**
 
-[**Demo & documentation**](https://www.achrafkassioui.com/showlog/)
+See [**demo and full documentation here**](https://www.achrafkassioui.com/showlog/).
 
 ## Setup
 
