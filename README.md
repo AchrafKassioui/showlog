@@ -1,7 +1,5 @@
 # Showlog.js
 
-![Showlog](showlog_logo.png)
-
 **Show `console.log` messages on screen.**
 
 [**Demo & documentation**](https://www.achrafkassioui.com/showlog/)
