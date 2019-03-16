@@ -1,6 +1,6 @@
 # Showlog.js
 
-![Showlog](showlog_logo.png)
+![Showlog](showlog.png)
 
 **Show `console.log` messages on screen.**
 
